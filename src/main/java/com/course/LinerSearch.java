@@ -1,25 +1,25 @@
 package com.course;
 
-import java.util.Objects;
+import com.course.utils.ArrayGenerator;
 
 public class LinerSearch {
 
 
     public static void main(String[] args) {
 
-        Integer[] data = {2, 3, 5, 50, 26, 80, 75};
-        int solution = solution(data, 26);
-        System.out.println("index of target is: " + solution);
-        System.out.println("index of 666 is: " + solution(data, 666));
+        Integer[] data = {1000000, 10000000};
+        for (int n : data) {
+            Integer[] array = ArrayGenerator.generateOrderedArray(n);
 
-        String[] arr = {"a", "b", "c", "d"};
-        System.out.println("index of str arr is: " + solution(arr, "b"));
+            long startTime = System.nanoTime();
+            for (int i = 0; i < 100; i++) {
+                 solution(array, n);
+            }
+            long endTime = System.nanoTime();
 
-        Student a = new Student(2, "a", "a");
-        Student b = new Student(3, "b", "b");
-        Student c = new Student(4, "c", "c");
-        Student[] stu = {a, b, c};
-        System.out.println("obj of stu is " + solution(stu, new Student(3, "b", "b")));
+            double time = (endTime - startTime) / 1000000000.0; //转换成s nano转换成s， 9个0
+            System.out.println("n = " + n + ", 100 runs: " + time + " s");
+        }
     }
 
 
