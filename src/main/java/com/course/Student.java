@@ -9,12 +9,17 @@ import java.util.Objects;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Student {
+public class Student implements Comparable<Student> {
 
     private Integer age;
     private String name;
     private String hobby;
 
+
+    @Override
+    public int compareTo(Student stu) {
+        return this.age - stu.age;
+    }
 
     @Override
     public boolean equals(Object obj) {

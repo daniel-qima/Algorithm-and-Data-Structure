@@ -34,18 +34,31 @@ public class _977_Squaresof_a_Sorted_Array {
     public int[] solution(int[] nums) {
         int[] result = new int[nums.length];
         // nums 有序的
-       int n = nums.length - 1; int k = 0;
-        for (int i = 0; i<nums.length; i++) {
+       int right = nums.length - 1; int left = 0;
 
-            if (Math.abs(nums[k])> Math.abs((nums[n]))) {
-                result[n] = nums[k];
-                k++;
+
+        for (int position = nums.length - 1; position > 0 ; position++) {
+            if (Math.abs(nums[left]) > Math.abs(nums[right])){
+                result[position] = nums[left] * nums[left];
+                left++;
             } else {
-                result[n] = nums[n];
-                n--;
+                result[position] =nums[right] * nums[right];
+                right--;
             }
         }
 
+
+//       int position = nums.length - 1;
+   /*    while (left <= right) {
+           if (Math.abs(nums[left]) > Math.abs(nums[right])) {
+               result[position] = nums[left] * nums[left];
+               left ++;
+           } else {
+               result[position] = nums[right] * nums[right];
+               right--;
+           }
+           position--;
+       }*/
         return result;
     }
 }
