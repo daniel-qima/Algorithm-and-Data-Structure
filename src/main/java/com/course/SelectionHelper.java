@@ -24,6 +24,12 @@ public class SelectionHelper {
         if (sortName.equals("sortFromEnd")) {
             SelectionSort.sortFromEnd(arr);
         }
+        if (sortName.equals("InsertionSort")) {
+            InsertionSort.sort(arr);
+        }
+        if (sortName.equals("InsertionSort2")) {
+            InsertionSort.sort2(arr);
+        }
         long end = System.nanoTime();
         double duration = (end - start) / 1000000000.0; //conver to second
 
