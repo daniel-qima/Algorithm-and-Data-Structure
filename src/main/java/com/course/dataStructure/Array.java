@@ -32,21 +32,26 @@ public class Array<E> {
     }
 
     // 向所有元素的最后添加一个元素
-    public void addLast(int e) {
+    public void addLast(E e) {
        add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
     // 向指定位置插入元素
     public void add(int index, E e) {
-        if (data.length == size)
-            throw new IllegalArgumentException("Add last failed, Array is full");
+//            throw new IllegalArgumentException("Add last failed, Array is full");
 
         if (index >= size || index < 0) {
             throw new ArrayIndexOutOfBoundsException("index is out of bounds");
+        }
+
+        // 如果size 和data的长度相等，说明array已经满了，要扩容
+        if (data.length == size) {
+            // 扩容
+            resize(2 * data.length);
         }
 
         for (int i = size -1; i>=index; i--) {
@@ -56,6 +61,15 @@ public class Array<E> {
         }
         data[index] = e;
         size++;
+    }
+
+
+    public void resize(int newSize) {
+        E[] newData = (E[]) new Object[newSize];
+        for(int i = 0; i< size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     // 获取 index索引位置的元素
@@ -100,6 +114,9 @@ public class Array<E> {
         }
         size--;
         data[size] = null; // loitering objects
+
+        if (size == data.length / 4 && data.length / 2 != 0)
+            resize(data.length / 2);
         return returnValue;
     }
 

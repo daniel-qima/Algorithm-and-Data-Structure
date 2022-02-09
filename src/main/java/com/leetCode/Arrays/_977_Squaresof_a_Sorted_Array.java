@@ -31,6 +31,7 @@ public class _977_Squaresof_a_Sorted_Array {
 
     }
 
+    // two pointer
     public int[] solution(int[] nums) {
         int[] result = new int[nums.length];
         // nums 有序的
