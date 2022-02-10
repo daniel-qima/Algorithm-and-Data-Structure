@@ -32,11 +32,11 @@ public class Array<E> {
     }
 
     // 向所有元素的最后添加一个元素
-    public void addLast(int e) {
+    public void addLast(E e) {
        add(size, e);
     }
 
-    public void addFirst(int e) {
+    public void addFirst(E e) {
         add(0, e);
     }
 
@@ -45,7 +45,7 @@ public class Array<E> {
         if (data.length == size)
             throw new IllegalArgumentException("Add last failed, Array is full");
 
-        if (index >= size || index < 0) {
+        if (index >= data.length || index < 0) {
             throw new ArrayIndexOutOfBoundsException("index is out of bounds");
         }
 
@@ -59,11 +59,19 @@ public class Array<E> {
     }
 
     // 获取 index索引位置的元素
-    E getIndex(int index){
+    public E getIndex(int index){
         if (index > size || index < 0) {
             throw new ArrayIndexOutOfBoundsException("index is out of bounds");
         }
       return data[index];
+    }
+
+    public E getLast() {
+        return getIndex(size-1);
+    }
+
+    public E getFirst() {
+        return getIndex(0);
     }
 
     // 修改 index位置的元素
@@ -102,6 +110,9 @@ public class Array<E> {
         data[size] = null; // loitering objects
         return returnValue;
     }
+
+
+
 
 
     // 从数组中删除第一个元素，返回删除的元素
