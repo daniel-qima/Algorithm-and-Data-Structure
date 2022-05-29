@@ -20,8 +20,8 @@ public class ArrayQueue<E> implements Queue<E>{
     }
 
     @Override
-    public void dequeue() {
-        array.removeFirst();
+    public E dequeue() {
+        return array.removeFirst();
     }
 
     @Override

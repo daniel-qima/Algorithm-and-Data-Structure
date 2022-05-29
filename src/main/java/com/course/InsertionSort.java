@@ -1,8 +1,5 @@
 package com.course;
 
-import com.course.utils.ArrayGenerator;
-import com.sun.javafx.collections.SortHelper;
-
 import java.util.Arrays;
 
 public class InsertionSort {

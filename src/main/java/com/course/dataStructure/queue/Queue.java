@@ -4,7 +4,7 @@ public interface Queue<E> {
 
     void enqueue(E e);
 
-    void dequeue();
+    E dequeue();
 
     E getFront();
 

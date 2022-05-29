@@ -11,10 +11,37 @@ public class _88_Merge_sorted_array {
 
 
     public static void main(String[] args) {
-
+        int[] num1 = {1, 2, 3, 0, 0, 0};
+        int[] num2 = {2, 5, 6};
+        int m = 3;
+        int n = 3;
+        merge(num1, m, num2, n);
     }
 
-    public void merge(int[] nums1, int m, int[] nums2, int n) {
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
 
+        m--;
+        n--;
+
+
+        for(int i=nums1.length - 1; i >= 0; i--) {
+
+            if (m < 0) {
+                nums1[i] = nums2[n--];
+            } else if (m < 0) {
+
+                return;
+            } else {
+                if (nums2[n] > nums1[m]){
+                    nums1[i] = nums2[n--];
+
+                } else {
+                    nums1[i] = nums1[m--];
+
+                }
+            }
+
+
+        }
     }
 }
